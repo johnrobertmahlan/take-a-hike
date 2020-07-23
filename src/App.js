@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import CityForm from './components/CityForm/CityForm';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    city: ''
+  }
+
+  updateCity = e => {
+    e.preventDefault();
+    this.setState(state => ({ city: this.state.city })); // later, I think what I want this function to do is really to update the COORDINATES based on the city that's entered
+  }
+
+  handleEnterCity = e => {
+    e.preventDefault();
+    this.setState({ city: e.target.value })
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        <CityForm city={this.state.city} updateCity={this.updateCity} handleEnterCity={this.handleEnterCity} />
+      </div>
+    );
+  }
 }
 
 export default App;
