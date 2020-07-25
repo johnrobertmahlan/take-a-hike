@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import CityForm from './components/CityForm/CityForm';
+import HikePage from './components/HikePage/HikePage';
 import './App.css';
+import { getLatLng } from './services/geolocation';
+import { Route, Switch } from 'react-router-dom';
+import { findTrails } from './services/findtrails';
 
 class App extends Component {
 
   state = {
-    city: ''
+    city: '',
+    lat: null,
+    lng: null,
+    trails: []
   }
 
-  updateCity = e => {
-    e.preventDefault();
-    this.setState(state => ({ city: this.state.city })); // later, I think what I want this function to do is really to update the COORDINATES based on the city that's entered
-  }
+  updateCity = async e => {
+    const data = await getLatLng(this.state.city);
+    const trails = await findTrails(data.coord.lat, data.coord.lon);
+    this.setState({lat: data.coord.lat, lng: data.coord.lon, trails: trails.trails });
+  };
 
   handleEnterCity = e => {
     e.preventDefault();
@@ -20,9 +28,18 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <CityForm city={this.state.city} updateCity={this.updateCity} handleEnterCity={this.handleEnterCity} />
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <div className="App">
+            <CityForm city={this.state.city} updateCity={this.updateCity} handleEnterCity={this.handleEnterCity} />
+          </div>
+        </Route>
+        <Route exact path="/hikes">
+          <div>
+            <HikePage trails={this.state.trails}/>
+          </div>
+        </Route>
+      </Switch>
     );
   }
 }
