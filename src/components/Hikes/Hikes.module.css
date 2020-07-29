@@ -1,5 +1,22 @@
-.trails {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 20px;
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.slideGroup {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+}
+
+.slide:first-child {
+    display: block;
 }

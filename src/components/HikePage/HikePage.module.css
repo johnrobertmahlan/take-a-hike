@@ -1,7 +1,22 @@
-.trailDisplay {
-    display: grid;
-    grid-template-columns: 500px 500px 500px;
-    grid-template-rows: 500px 500px 500px;
-    width: 1200px;
-    margin: 100px;
+.slideViewer {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.slideGroup {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+}
+
+.slide:first-child {
+    display: block;
 }
