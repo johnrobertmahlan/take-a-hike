@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CityForm from './components/CityForm/CityForm';
 import HikePage from './components/HikePage/HikePage';
+import IndividualHike from './components/IndividualHike/IndividualHike';
 import './App.css';
 import { getLatLng } from './services/geolocation';
 import { Route, Switch } from 'react-router-dom';
@@ -39,6 +40,7 @@ class App extends Component {
             <HikePage trails={this.state.trails}/>
           </div>
         </Route>
+        <Route exact path="/hikes/:id" render={(props) => <IndividualHike {...props} trails={this.state.trails} />} />
       </Switch>
     );
   }

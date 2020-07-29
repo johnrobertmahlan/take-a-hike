@@ -1,11 +1,11 @@
 import React from 'react';
-import Hike from '../Hike/Hike';
+import Hikes from '../Hikes/Hikes';
 
 const HikePage = (props) => {
     console.log(props.trails);
     if(props.trails.length) return(
         <div>
-            {props.trails.map((trail) => <Hike trail={ trail } />)}
+            {props.trails.map((trail, idx) => <Hikes trail={ trail } idx={ idx } />)}
         </div>
     ); else return <div>BOO</div>
 };
