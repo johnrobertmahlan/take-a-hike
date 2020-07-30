@@ -24,9 +24,9 @@
 .cityFormLink {
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
     background-color: rgba(0, 0, 128, 0.7);
     color: white;
     font-size: 20px;
-    padding: 3px;
+    padding: 7px;
 }

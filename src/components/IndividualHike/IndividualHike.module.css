@@ -1,0 +1,33 @@
+.individualHike {
+    width: 1000px;
+}
+
+.individualHikeImage {
+    height: 90vh;
+    width: 100vw;
+    position: relative;
+}
+
+.individualHikeImageLayer {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 70px;
+}
+
+.individualHikeInfo {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(0,0,128);
+}
+
+.individualHikeInfo>h3 {
+    font-size: 50px;
+}
