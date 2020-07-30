@@ -32,6 +32,11 @@ class App extends Component {
       <Switch>
         <Route exact path="/">
           <div className="App">
+            <div className="App-header">
+              <div className="App-header-layer">
+                <h3>Take a Hike</h3>
+              </div>
+            </div>
             <CityForm city={this.state.city} updateCity={this.updateCity} handleEnterCity={this.handleEnterCity} />
           </div>
         </Route>
