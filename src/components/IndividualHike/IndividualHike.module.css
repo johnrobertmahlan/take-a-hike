@@ -30,4 +30,10 @@
 
 .individualHikeInfo>h3 {
     font-size: 50px;
+    text-align: center;
+}
+
+.individualHikeDetails {
+    width: 400px;
+    text-align: justify;
 }

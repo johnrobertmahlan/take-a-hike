@@ -1,25 +1,6 @@
-/* body {
-    background-color: rgba(128,0,0,0.7);
-} */
-
-.slideWrapper {
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.wrapperLayer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 .slider {
-    background-color: green;
+    background-color: blue;
+    background-size: cover;
 }
 
 .slideViewer {
@@ -28,7 +9,8 @@
     height: 100vh;
     width: 100vh;
     text-align: center;
-    /* background-color: green; */
+    background-color: black;
+    color: white;
 }
 
 .slideGroup {

@@ -14,18 +14,14 @@ class HikePage extends Component {
 
     render() {
         return(
-            <div className={styles.slideWrapper}>
-                <div className={styles.wrapperLayer}>
-                    <div className={`${styles.slider} slider`}>
+                    <div className={`${styles.slider} slider`} style={{backgroundImage: "url(https://i.imgur.com/KJ63hsy.jpg)"}}>
                         <div className={`${styles.slideViewer} slideViewer`}>
                             <div className={`${styles.slideGroup} slideGroup`}>
                                 {this.props.trails.map((trail, idx) => <Hikes groupStyles={styles.group} trail={trail} idx={idx} />)}
                             </div>
                         </div>
-                    <div className="slideButtons"></div>
+                    {/* <div className="slideButtons"></div> */}
                     </div>
-                </div>
-            </div>
         )
     };
 };
