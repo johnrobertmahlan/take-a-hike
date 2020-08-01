@@ -15,6 +15,7 @@ class HikePage extends Component {
     render() {
         return(
                     <div className={`${styles.slider} slider`} style={{backgroundImage: "url(https://i.imgur.com/KJ63hsy.jpg)"}}>
+                        Hi
                         <div className={`${styles.slideViewer} slideViewer`}>
                             <div className={`${styles.slideGroup} slideGroup`}>
                                 {this.props.trails.map((trail, idx) => <Hikes groupStyles={styles.group} trail={trail} idx={idx} />)}

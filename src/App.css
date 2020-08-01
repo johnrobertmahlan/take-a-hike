@@ -38,6 +38,12 @@
   color: white;
 }
 
+.App-authentication {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+
 .App-link {
   color: #61dafb;
 }
