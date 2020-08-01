@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import CityForm from './components/CityForm/CityForm';
 import HikePage from './components/HikePage/HikePage';
 import IndividualHike from './components/IndividualHike/IndividualHike';
+import NavBar from './components/NavBar/NavBar';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage.jsx'
 import userService from './services/userService';
 import './App.css';
-import styles from './App.module.css';
+//import styles from './App.module.css';
 import { getLatLng } from './services/geolocation';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { findTrails } from './services/findtrails';
 
 class App extends Component {
@@ -17,7 +18,8 @@ class App extends Component {
     city: '',
     lat: null,
     lng: null,
-    trails: []
+    trails: [],
+    user: userService.getUser()
   }
 
   updateCity = async e => {
@@ -33,7 +35,12 @@ class App extends Component {
 
   handleSignUpOrLogIn = () => {
     this.setState({ user: userService.getUser() });
-  }
+  };
+
+  handleLogOut = () => {
+    userService.logout();
+    this.setState({ user: null });
+  };
   
   render() {
     return (
@@ -44,8 +51,10 @@ class App extends Component {
               <div className="App-header-layer">
                 <h3>Take a Hike</h3>
                 <div className="App-authentication">
-                  <Link to='/signup' className={styles.authLinks}>Sign Up</Link>
-                  <Link to='/login' className={styles.authLinks}>Log In</Link>
+                  <NavBar 
+                    user={this.state.user}
+                    handleLogOut={this.handleLogOut}  
+                  />
                 </div>
               </div>
             </div>
