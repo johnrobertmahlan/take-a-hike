@@ -53,6 +53,7 @@ class App extends Component {
                 <div className="App-authentication">
                   <NavBar 
                     user={this.state.user}
+                    handleSignUpOrLogIn={this.handleSignUpOrLogIn}
                     handleLogOut={this.handleLogOut}  
                   />
                 </div>
