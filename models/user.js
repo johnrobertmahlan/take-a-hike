@@ -15,7 +15,7 @@ userSchema.set('toJSON', {
     }
 });
 
-userSchema.methods.comparePassword = function(tryPassword, cd) {
+userSchema.methods.comparePassword = function(tryPassword, cb) {
     bcrypt.compare(tryPassword, this.password, cb)
 }
 
