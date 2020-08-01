@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage.jsx'
 import userService from './services/userService';
+//import hikeService from './services/hikeService';
 import './App.css';
 //import styles from './App.module.css';
 import { getLatLng } from './services/geolocation';
@@ -79,7 +80,7 @@ class App extends Component {
             <HikePage trails={this.state.trails}/>
           </div>
         </Route>
-        <Route exact path="/hikes/:id" render={(props) => <IndividualHike {...props} trails={this.state.trails} />} />
+        <Route exact path="/hikes/:id" render={(props) => <IndividualHike {...props} trails={this.state.trails} trailId={this.state.trails[props.match.params.id].id} />} />
       </Switch>
     );
   }
