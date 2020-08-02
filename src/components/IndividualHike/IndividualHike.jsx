@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import hikeService from '../../services/hikeService';
 import userService from  '../../services/userService';
+import Comments from '../Comments/Comments';
 import styles from './IndividualHike.module.css';
 
 class IndividualHike extends Component {
@@ -11,12 +12,13 @@ class IndividualHike extends Component {
     }
 
     async componentDidMount() {
-        const id = this.props.trailId;
-        console.log(id);
-        const hike = await hikeService.create({id});
-        console.log('hike', hike);
-        this.setState({ hike });
-        //this.setState({ hike: this.state.hike.id });
+        //const id = this.props.trailId;
+        //const hike = await hikeService.create({id});
+        // console.log('hike', hike);
+        // this.setState({ hike });
+        // const hikeComments = await hikeService.getComments(id);
+        // console.log(hikeComments);
+        // this.setState({userComments: hikeComments});
     };
 
     handleChange = (e) => {
@@ -28,6 +30,18 @@ class IndividualHike extends Component {
         e.preventDefault();
         const comment = this.state.userComments;
         console.log(comment);
+        const id = this.props.trailId;
+        console.log(id);
+        const hike = await hikeService.getHike(id);
+        console.log(hike);
+        if(hike) {
+            console.log('hike', hike);
+            this.setState({ hike })
+        } else {
+            const newHike =  await hikeService.create({id});
+            console.log(newHike);
+            this.setState({ hike: newHike })
+        }
         const userComment = await hikeService.createComment({content: comment, createdBy: userService.getUser()}, this.state.hike._id);
         console.log(userComment);
         // I will need to use existing state and then push comment to the appropriate array afterwards
@@ -48,15 +62,19 @@ class IndividualHike extends Component {
                         <p>The {this.props.trails[this.props.location.state.idx].name} is {this.props.trails[this.props.location.state.idx].length} miles long, reaching a height of {this.props.trails[this.props.location.state.idx].high} feet.</p>
                         <p>The hike has an ascent of {this.props.trails[this.props.location.state.idx].ascent} feet and a descent of {Math.abs(this.props.trails[this.props.location.state.idx].descent)} feet.</p>
                     </div>
-                </div>
+                </div><br /><br />
             {/* DO SOMETHING WITH LEVEL OF DIFFICULTY */}
-            <div className='comment-form'>
-                <form onSubmit={this.addComment}>
-                    <textarea placeholder="comments" name="comments" value={this.state.userComments} onChange={this.handleChange}></textarea>
+            <div className={styles.commentForm}>
+                <h4>Feel free to leave a comment about this trail for your fellow hikers:</h4>
+                <form className={styles.Form} onSubmit={this.addComment}>
+                    <br /><br />
+                    <textarea cols="40" rows="10" placeholder="How was it?" name="comments" value={this.state.userComments} onChange={this.handleChange}></textarea><br />
+                    <br />
                     <button>Submit</button>
                 </form>
             </div>
-            </div>
+            <Comments comments={this.state.userComments} id={this.props.trailId} />
+        </div>
 // </div>
         )
     }

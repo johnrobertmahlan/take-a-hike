@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Hike = require('../models/hike');
 
 module.exports = {
-    createComment
+    createComment,
+    getComments
 }
 
 function createComment(req, res) {
@@ -16,4 +17,10 @@ function createComment(req, res) {
             res.json(hike);
         });
     });
+}
+
+function getComments(req,res) {
+    Hike.find({"comments._id": req.params.id}, function(err, hike) {
+        res.json(hike);
+    })
 }

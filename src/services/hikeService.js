@@ -2,7 +2,9 @@ const BASE_URL = '/api/hikes/';
 
 export default {
     create,
-    createComment
+    getHike,
+    createComment,
+    getComments
 };
 
 function create(hike) {
@@ -26,4 +28,13 @@ function createComment(comment, id) {
         body: JSON.stringify(comment)
     };
     return fetch(BASE_URL + id + '/comments', options).then(res => res.json());
+};
+
+function getHike(id)  {
+    console.log(id);
+    return fetch(BASE_URL + id).then(res => res.json());
+};
+
+function getComments(id) {
+    return fetch(BASE_URL + id + '/comments').then(res => res.json());
 };
