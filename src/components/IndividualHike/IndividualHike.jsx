@@ -8,7 +8,7 @@ class IndividualHike extends Component {
 
     state = {
         hike: {},
-        userComments: ''
+        userComments: []
     }
 
     async componentDidMount() {
@@ -44,6 +44,12 @@ class IndividualHike extends Component {
         }
         const userComment = await hikeService.createComment({content: comment, createdBy: userService.getUser()}, this.state.hike._id);
         console.log(userComment);
+        const hikeComments = await hikeService.getComments(id);
+        console.log(hikeComments);
+        const userComments = {...this.state.userComments};
+        this.setState({userComments, hikeComments})
+        //DO I EVEN NEED THE ABOVE 4 LINES GIVEN THE STRUCTURE OF HIKE?
+        //this.setState({userComments: hikeComments}) //this really ought to be an array, but I'll worry about that later
         // I will need to use existing state and then push comment to the appropriate array afterwards
     }
 
@@ -73,7 +79,7 @@ class IndividualHike extends Component {
                     <button>Submit</button>
                 </form>
             </div>
-            <Comments comments={this.state.userComments} id={this.props.trailId} />
+            <Comments id={this.props.trailId} comments={this.state.hike.comments} />
         </div>
 // </div>
         )

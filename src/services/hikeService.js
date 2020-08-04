@@ -36,5 +36,6 @@ function getHike(id)  {
 };
 
 function getComments(id) {
+    console.log('new', id);
     return fetch(BASE_URL + id + '/comments').then(res => res.json());
 };
