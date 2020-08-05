@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from '../Comment/Comment.jsx';
 
 const Comments = (props) => {
 
@@ -6,7 +7,7 @@ const Comments = (props) => {
             return(
                 <div>
                     {props.comments.map((comment) => (
-                    <li>{comment.content}</li>
+                    <Comment content={comment.content} />
                 ))}
                     <li>{props.mostRecent}</li>
                 </div>

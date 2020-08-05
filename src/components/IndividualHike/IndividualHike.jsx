@@ -74,7 +74,7 @@ class IndividualHike extends Component {
                         <br /><br />
                         <textarea cols="40" rows="10" placeholder="How was it?" name="comments" value={this.state.userComments} onChange={this.handleChange}></textarea><br />
                         <br />
-                        <button disabled={!this.props.user}>Submit</button>
+                        <button className={styles.authLinks}>Share</button>
                     </form>
                 </div>
                 <Comments user={this.props.user} id={this.props.trailId} comments={this.state.hike.comments} mostRecent={this.state.mostRecent} oldComments={this.state.hikeComments} />
@@ -95,10 +95,13 @@ class IndividualHike extends Component {
                             <p>The {this.props.trails[this.props.location.state.idx].name} is {this.props.trails[this.props.location.state.idx].length} miles long, ascending {this.props.trails[this.props.location.state.idx].ascent} feet to reach a height of {this.props.trails[this.props.location.state.idx].high} feet. The descent is {Math.abs(this.props.trails[this.props.location.state.idx].descent)} feet.</p>
                         </div>
                     </div><br /><br />
-                    <div>
-                        <Link to="/login" className={styles.authLinks}>LOG IN</Link>
-                        &nbsp;&nbsp; or &nbsp;&nbsp;
-                        <Link to="/signup" className={styles.authLinks}>SIGN UP</Link>
+                    <div className={styles.Comments}>
+                        <h3>Want to see what other hikers thought of this trail? Want to share your own thoughts?</h3>
+                        <div className={styles.commentNav}>
+                            <Link to="/login" className={styles.authLinks}>LOG IN</Link>
+                            &nbsp;&nbsp; OR &nbsp;&nbsp;
+                            <Link to="/signup" className={styles.authLinks}>SIGN UP</Link>
+                        </div>
                     </div>
                 </div>
             )

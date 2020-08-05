@@ -12,3 +12,9 @@
     height: 25px;
     text-align: center;
 }
+
+.comment {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+}

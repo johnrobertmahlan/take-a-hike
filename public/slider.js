@@ -5,10 +5,6 @@ $('.slider').each(function() {
     var buttonArray = [];
     var currentIndex = 0;
     var timeout;
-    console.log($this);
-    console.log($group);
-    console.log($slides);
-    console.log(currentIndex);
 
     function move(newIndex) {
         console.log(newIndex);
