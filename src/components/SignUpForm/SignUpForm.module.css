@@ -1,0 +1,26 @@
+.formHorizontal {
+    text-align: center;
+}
+
+.formGroup>input {
+    width: 75%
+}
+
+.button {
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(0, 128, 0, 0.7);
+    color: white;
+    font-size: 20px;
+    padding: 7px;
+    width: 90px;
+    height: 38px;
+    text-align: center;
+}
+
+.button:disabled {
+    background-color: gray;
+}

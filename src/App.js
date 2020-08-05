@@ -3,8 +3,8 @@ import CityForm from './components/CityForm/CityForm';
 import HikePage from './components/HikePage/HikePage';
 import IndividualHike from './components/IndividualHike/IndividualHike';
 import NavBar from './components/NavBar/NavBar';
-import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage.jsx'
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import LoginPage from './pages/LoginPage/LoginPage.jsx'
 import userService from './services/userService';
 //import hikeService from './services/hikeService';
 import './App.css';
@@ -50,7 +50,7 @@ class App extends Component {
           <div className="App">
             <div className="App-header">
               <div className="App-header-layer">
-                <h3>Take a Hike</h3>
+                <h1>Take a Hike</h1>
                 <div className="App-authentication">
                   <NavBar 
                     user={this.state.user}

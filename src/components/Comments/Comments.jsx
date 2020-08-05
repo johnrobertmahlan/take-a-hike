@@ -19,7 +19,12 @@ const Comments = (props) => {
     } else {
         return(
             <div>
-                <h3>If you want to see what your fellow hikers thought about this hike, please <Link to="/login" className={styles.authLinks}>LOG IN</Link></h3>    
+                <h4>Want to know what your fellow hikers thought about this trail? Want to share your own thoughts?</h4>
+                <div>
+                    <Link to="/login" className={styles.authLinks}>LOG IN</Link>
+                    &nbsp;&nbsp; or &nbsp;&nbsp;
+                    <Link to="/signup" className={styles.authLinks}>SIGN UP</Link>
+                </div>
             </div>
         )
     }
