@@ -76,7 +76,7 @@ class IndividualHike extends Component {
                     <br /><br />
                     <textarea cols="40" rows="10" placeholder="How was it?" name="comments" value={this.state.userComments} onChange={this.handleChange}></textarea><br />
                     <br />
-                    <button>Submit</button>
+                    <button disabled={!this.props.user}>Submit</button>
                 </form>
             </div>
             <Comments user={this.props.user} id={this.props.trailId} comments={this.state.hike.comments} mostRecent={this.state.userComments} />
