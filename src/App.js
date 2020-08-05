@@ -80,7 +80,7 @@ class App extends Component {
             <HikePage trails={this.state.trails}/>
           </div>
         </Route>
-        <Route exact path="/hikes/:id" render={(props) => <IndividualHike {...props} trails={this.state.trails} trailId={this.state.trails[props.match.params.id].id} />} />
+        <Route exact path="/hikes/:id" render={(props) => <IndividualHike {...props} user={this.state.user} trails={this.state.trails} trailId={this.state.trails[props.match.params.id].id} />} />
       </Switch>
     );
   }

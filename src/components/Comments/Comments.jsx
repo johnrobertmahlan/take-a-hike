@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-//import hikeService from '../../services/hikeService';
+import React  from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Comments.module.css';
 
 const Comments = (props) => {
-    if(props.comments) {
+    if(props.comments && props.user) {
         console.log(props.comments);
         console.log(props.comments[2]);
         console.log(props.comments[2].content);
@@ -12,13 +13,14 @@ const Comments = (props) => {
                 {props.comments.map((comment) => (
                 <li>{comment.content}</li>
             ))}
-            {/*<h1>YAY AGAIN</h1>  SO THIS WORKS BUT THE ABOVE MAP FUNCTION IS UNDEFINED AND LINES 45-6 IN INDIVIDUALHIKE.JSX DON'T EVEN RUN */}
-            {/* PRETTY SURE IT'S UNDEFINED BECAUSE OF THE LENGTH DISCREPANCY WHEN ADDING A NEW COMMENT */}
+                <li>{props.mostRecent}</li>
             </div>
         )
     } else {
         return(
-            <h1>BOO</h1>
+            <div>
+                <h3>If you want to see what your fellow hikers thought about this hike, please <Link to="/login" className={styles.authLinks}>LOG IN</Link></h3>    
+            </div>
         )
     }
 }
