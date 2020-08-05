@@ -49,7 +49,7 @@ $('.slider').each(function() {
             } else {
                 move(0);
             }
-        }, 7000);
+        }, 5000);
     }
 
     $.each($slides, function(index) {
