@@ -7,15 +7,20 @@ const Comments = (props) => {
         if(props.comments) {
             return(
                 <div className={styles.comment}>
-                    {props.comments.map((comment) => ( 
-                        <Comment content={comment.content} /> 
-                    ))}
-                    <li>{props.mostRecent}</li>
+                    <h3>Comments</h3>
+                        {props.comments.map((comment) => ( 
+                        <div className={styles.individualComment}>
+                            <Comment content={comment.content} />
+                        </div>
+                        ))}
+                    <div className={styles.individualComment}>
+                        <p>{props.mostRecent}</p>
+                    </div>
                 </div>
                 )
         } else {
             return(
-                <div>
+                <div className={styles.comment}>
                     <h3>It looks like nobody has said anything about this hike yet. You could be the first!</h3>
                 </div>
             )

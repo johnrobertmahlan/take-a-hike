@@ -15,6 +15,21 @@
 
 .comment {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 100px;
+    align-items: center;
+    width: 100vw;
+    color: rgb(0,0,128);
+}
+
+.comment>h3 {
+    color: rgb(0,0,128);
+}
+
+.individualComment {
+    border: 2px solid rgb(0,0,128);
+    padding: 30px;
+    width: 75vw;
+    margin-top: 20px;
+    text-align: center;
 }
