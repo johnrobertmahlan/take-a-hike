@@ -21,6 +21,11 @@ class HikePage extends Component {
         document.body.appendChild(script);
     }
 
+    // componentWillUnmount() {
+    //     const script = document.createElement("script");
+    //     script.src = "../../slider.js";
+    // }
+
     render() {
         return(
                     <div className={`${styles.slider} slider`} style={{backgroundImage: "url(https://i.imgur.com/KJ63hsy.jpg)"}}>

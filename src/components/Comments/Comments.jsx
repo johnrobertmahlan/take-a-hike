@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from '../Comment/Comment.jsx';
+import { Link } from 'react-router-dom';
 import styles from './Comments.module.css';
 
 const Comments = (props) => {
@@ -16,6 +17,7 @@ const Comments = (props) => {
                     <div className={styles.individualComment}>
                         <p>{props.mostRecent}</p>
                     </div>
+                    <Link className={styles.authLinks} to="/">Return Home</Link>
                 </div>
                 )
         } else {

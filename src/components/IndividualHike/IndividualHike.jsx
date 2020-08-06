@@ -109,6 +109,10 @@ class IndividualHike extends Component {
                             &nbsp;&nbsp; OR &nbsp;&nbsp;
                             <Link to="/signup" className={styles.authLinks}>SIGN UP</Link>
                         </div>
+                        <div className={styles.homeLink}>
+                            <h3>Or you could just</h3>
+                            <Link className={styles.authLinks} to="/">Return Home</Link>
+                        </div>
                     </div>
                 </div>
             )
