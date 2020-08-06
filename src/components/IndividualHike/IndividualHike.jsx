@@ -17,20 +17,15 @@ class IndividualHike extends Component {
     async componentDidMount() {
         const id = this.props.trailId;
         console.log(id);
-        console.log(id);
         const hike = await hikeService.getHike(id);
         console.log(hike);
         if(hike) {
             console.log('hike', hike);
             this.setState({ hike })
-        } else {
-            const newHike =  await hikeService.create({id});
-            console.log(newHike);
-            this.setState({ hike: newHike })
+            const hikeComments = await hikeService.getComments(id);
+            console.log(hikeComments);
+            this.setState({ hikeComments })
         }
-        // const hikeComments = await hikeService.getComments(id);
-        // console.log(hikeComments);
-        // this.setState({ hikeComments })
     };
 
     handleChange = (e) => {
@@ -42,6 +37,17 @@ class IndividualHike extends Component {
         e.preventDefault();
         const comment = this.state.userComments;
         console.log(comment);
+        const id = this.props.trailId;
+        const hike = await hikeService.getHike(id);
+        console.log(hike);
+        if(hike) {
+            console.log('hike', hike);
+            this.setState({ hike })
+        } else {
+            const newHike =  await hikeService.create({id});
+            console.log(newHike);
+            this.setState({ hike: newHike })
+        }
         const userComment = await hikeService.createComment({content: comment, createdBy: userService.getUser()}, this.state.hike._id);
         console.log(userComment);
         this.setState({mostRecent: comment});
