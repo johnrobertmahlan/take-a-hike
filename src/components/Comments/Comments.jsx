@@ -7,7 +7,7 @@ const Comments = (props) => {
         if(props.comments) {
             return(
                 <div className={styles.comment}>
-                    <h3>Comments</h3>
+                    <h2>Comments</h2>
                         {props.comments.map((comment) => ( 
                         <div className={styles.individualComment}>
                             <Comment content={comment.content} />

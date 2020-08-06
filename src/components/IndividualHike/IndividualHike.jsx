@@ -81,6 +81,7 @@ class IndividualHike extends Component {
                         <textarea cols="40" rows="10" placeholder="How was it?" name="comments" value={this.state.userComments} onChange={this.handleChange}></textarea><br />
                         <br />
                         <button className={styles.authLinks}>Share</button>
+                        <br />
                     </form>
                 </div>
                 <Comments user={this.props.user} id={this.props.trailId} comments={this.state.hike.comments} mostRecent={this.state.mostRecent} oldComments={this.state.hikeComments} />

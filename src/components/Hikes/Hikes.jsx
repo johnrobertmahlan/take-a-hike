@@ -9,7 +9,7 @@ const Hikes = (props) => {
                     <h3>{props.trail.name}</h3>
                     <Link className={styles.individualHikeLink} to={{pathname: `/hikes/${props.idx}`, state: {idx: props.idx}}}>Learn More!</Link>
                     <br /><br />
-                    <img src={props.trail.imgSmallMed} alt="Trail"></img>
+                    <img src={props.trail.imgMedium} alt="Trail"></img>
                     <br /><br />
                 </div>
         )

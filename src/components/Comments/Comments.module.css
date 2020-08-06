@@ -26,6 +26,10 @@
     color: rgb(0,0,128);
 }
 
+.comment>h2 {
+    color: rgb(0,0,128);
+}
+
 .individualComment {
     border: 2px solid rgb(0,0,128);
     padding: 30px;
