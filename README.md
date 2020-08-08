@@ -24,10 +24,10 @@ Here is the homepage for the app:
     * ReactJS
     * NodeJS
 
-* Assorted Libraries and Frameworks
+* APIs
+    * [Hiking Project Data API] (https://www.hikingproject.com/data)
+    * [OpenWeatherMap API] (https://openweathermap.org/api)
 
-* [Hiking Project Data API] (https://www.hikingproject.com/data)
-* [OpenWeatherMap API] (https://openweathermap.org/api)
 
 ## Project Planning
 
