@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Introduction
 
-## Available Scripts
+When I moved to Denver last year, I realized that I did not fit in with the other people my age. It did not take long to learn why: other than skiing, by far the most popular pasttime for thirty-somethings in the area is hiking. And although I have *been hiking*, I would not consider myself a *hiker*. If I wanted to fit in, I was going to have to find some trails.
 
-In the project directory, you can run:
+But how does one find hiking trails? I'm sure aficionados could have answered this question for me, but I decided to build an app instead.
 
-### `npm start`
+Take A Hike is a full-stack web app that allows users to find hikes in their area. Searching by city, users are presented with a variety of local hikes in their vicinity, including some relevant information: the length of the hike, its ascent, and the highest point that it reaches. Users who create an account are also able to leave comments about the hikes they find, or read comments left by other users.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here is the homepage for the app:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Take A Hike Homepage](https://i.imgur.com/JxAsbuK.jpg)
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* HTML, CSS, JavaScript, jQuery
+* NodeJS
+* ExpressJS
+* MongoDB
+* ReactJS
+* [Hiking Project Data API] (https://www.hikingproject.com/data)
+* [OpenWeatherMap API] (https://openweathermap.org/api)
 
-### `npm run build`
+## Project Planning
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here is the Trello board for my project:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+[Take A Hike] (https://trello.com/b/YNRvW87u/ga-project-3)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There are still a few Icebox features that I have not yet implemented, but would like to implement as I continue to work on the project.
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You can check out the deployed app by following this link: [Take A Hike] (https://infinite-fortress-44591.herokuapp.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Unsolved Problems
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The main problem I had while building the app was building the responsive slider that displays the search results when users search for hikes by city. The slider was built primarily in a static JavaScript file (`slider.js`) that relies on jQuery to manipulate the various elements of the slider in the DOM. I was able to get the slider to work almost as intended by loading that script twice in the HikePage component: first, by relying on `componentDidUpdate` to handle the functioning of the slider after the initial search; second, by relying on `componentDidMount` to handle the functioning of the slider after a user navigates to an individual hike and then uses the back button on their browser to look at their search results again. (This may seem backward, but HikePage is rendered by App, so that component is really updating rather than mounting after a user runs an initial search for hikes, while navigating back to that page re-mounts that component rather than updating it.)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The problem with building the slider this way is that it gets "doubled up" whenever users try to navigate around the website. For example, if a user who is not logged in selects a particular hike, they're told that if they want to see what other users have thought about that hike, or share their own thoughts that hike, they will need to log in (if they have an account) or sign up for an account:
 
-## Learn More
+![Individual Hike Page](https://i.imgur.com/mvKEggg.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If the user then logs in or signs up, they will be returned to the homepage, where they can run their search again. But if they do run their search again - or, indeed, run *any* search without refreshing the homepage - the slider will "double up":
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Doubled Up Slider](https://i.imgur.com/6PlZhbx.jpg)
 
-### Code Splitting
+Notice all the buttons on the bottom of that image. There should not be that many buttons. Here is what a user *should* see:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![Normal Slider](https://i.imgur.com/uwahXLm.jpg)
 
-### Analyzing the Bundle Size
+There are half as many buttons in this image.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+This may not seem important, but it leads to two major issues with functionality. First, sometimes it means that two timers are running in the background, which means that instead of images sliding off the screen every 5 seconds as intended, there is a "hitch" so that a slide will appear for about 1 second and then be replaced by its duplicate for 5 seconds, before moving on to the next slide. Second, and much worse, is that if the slider is allowed to go through its progression, the slides start to "pile up" on one another:
 
-### Making a Progressive Web App
+![Piled Up Slidier](https://i.imgur.com/1enL3Qh.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+If a user clicks on the 'Learn More' button, they will be taken to a blank page, since there is no single hike they've selected due to the "pile up".
 
-### Advanced Configuration
+The obvious solution to this problem is to rebuild the slider purely out of React components instead of using a static JavaScript file to build and load the slider. This is something I look forward to doing as I continue to work on the app, but I believe building the slider this way was a valuable lesson not only in incorporating external libraries into a React app, but also into seeing how one can code oneself into a corner and learn how to take a different approach.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
