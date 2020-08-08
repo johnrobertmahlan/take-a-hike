@@ -5,7 +5,7 @@ import styles from './Comments.module.css';
 
 const Comments = (props) => {
 
-        if(props.comments) {
+        if(props.comments && props.mostRecent) {
             return(
                 <div className={styles.comment}>
                     <h2>Comments</h2>
@@ -20,6 +20,18 @@ const Comments = (props) => {
                     <Link className={styles.authLinks} to="/">Return Home</Link>
                 </div>
                 )
+        } else if (props.comments && !props.mostRecent) {
+            return(
+                    <div className={styles.comment}>
+                        <h2>Comments</h2>
+                            {props.comments.map((comment) => ( 
+                            <div className={styles.individualComment}>
+                                <Comment content={comment.content} />
+                            </div>
+                            ))}
+                            <Link className={styles.authLinks} to="/">Return Home</Link>
+                </div>
+            )
         } else {
             return(
                 <div className={styles.comment}>
@@ -30,6 +42,7 @@ const Comments = (props) => {
                     </div>
                 </div>
             )
+
         }
     }
 
