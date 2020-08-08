@@ -106,5 +106,3 @@ There are a number of interesting features that could be added to this app to im
 3. Right now the ability to read or write comments on hikes is limited to users who have signed up for an account and logged into their account. But the ability to *read* comments should probably be extended to users who do not have accounts, while users *with* accounts should be able to do more than simply write comments. For example, it would be nice if each user had an "Account Page" where they could see hikes that they have commented on all in one place. This would allow frequent users to keep track of the hikes that they've already done and see what they've thought about those hikes.
 
 4. Since the app already consumes the OpenWeather API, another nice feature might be to show an upcoming forecast for a given trail. For example, when a user navigates to a particular trail, there could be a button the user could press that would display a 5-day forecast. This would help users plan upcoming trips.
-
-5. 
