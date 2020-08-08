@@ -1,8 +1,8 @@
 # Introduction
 
-When I moved to Denver last year, I realized that I did not fit in with the other people my age. It did not take long to learn why: other than skiing, by far the most popular pasttime for thirty-somethings in the area is hiking. And although I have *been hiking*, I would not consider myself a *hiker*. If I wanted to fit in, I was going to have to find some trails.
+When I moved to Denver last year, I realized that I did not fit in with the other people my age. It did not take long to learn why: other than skiing, by far the most popular pasttime for thirty-somethings in the area is hiking. And although I have *been hiking*, I would not consider myself a *hiker*. If I wanted to fit in in my new home, though, I was going to have to change.
 
-But how does one find hiking trails? I'm sure aficionados could have answered this question for me, but I decided to build an app instead.
+But how does one find where to go hiking? Where do you learn about hiking trails? I'm sure aficionados could have answered this question for me, but I decided to build an app instead.
 
 Take A Hike is a full-stack web app that allows users to find hikes in their area. Searching by city, users are presented with a variety of local hikes in their vicinity, including some relevant information: the length of the hike, its ascent, and the highest point that it reaches. Users who create an account are also able to leave comments about the hikes they find, or read comments left by other users.
 
