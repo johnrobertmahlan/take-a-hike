@@ -12,11 +12,20 @@ Here is the homepage for the app:
 
 ## Technologies Used
 
-* HTML, CSS, JavaScript, jQuery
-* NodeJS
-* ExpressJS
-* MongoDB
-* ReactJS
+* Languages:
+    * HTML
+    * CSS
+    * JavaScript
+    * jQuery
+
+* Stack
+    * MongoDB (Atlas)
+    * ExpressJS
+    * ReactJS
+    * NodeJS
+
+* Assorted Libraries and Frameworks
+
 * [Hiking Project Data API] (https://www.hikingproject.com/data)
 * [OpenWeatherMap API] (https://openweathermap.org/api)
 
@@ -84,7 +93,7 @@ If a user then clicks on the 'Learn More' button, they will be taken to a blank 
 
 The obvious solution to this problem is to rebuild the slider purely out of React components instead of using a static JavaScript file to build and load the slider. This is something I look forward to doing as I continue to work on the app, but I believe building the slider this way was a valuable lesson not only in incorporating external libraries into a React app, but also into seeing how one can code oneself into a corner and learn how to take a different approach.
 
-Other unsolved problems are minor by comparison. For example, users who navigate to the login page from a particular hike are not returned to that hike; they are returned to the homepage. That is not an ideal user experience. Similarly, when a user writes a new comment, the input box where they wrote the comment does not clear automatically.
+Other unsolved problems are minor by comparison. For example, users who navigate to the login page from a particular hike are not returned to that hike; they are returned to the homepage. There are also some presentation issues for hikes that do not have photos associated with them in the API and, in general, some styling issues with the app that I would like to work on more.
 
 ## Future Enhancements
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import CityForm from './components/CityForm/CityForm';
 import HikePage from './components/HikePage/HikePage';
 import IndividualHike from './components/IndividualHike/IndividualHike';
@@ -6,12 +7,9 @@ import NavBar from './components/NavBar/NavBar';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage/LoginPage.jsx'
 import userService from './services/userService';
-//import hikeService from './services/hikeService';
-import './App.css';
-//import styles from './App.module.css';
 import { getLatLng } from './services/geolocation';
-import { Route, Switch } from 'react-router-dom';
 import { findTrails } from './services/findtrails';
+import './App.css';
 
 class App extends Component {
 

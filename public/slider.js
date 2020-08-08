@@ -7,7 +7,6 @@ $('.slider').each(function() {
     var timeout;
 
     function move(newIndex) {
-        console.log(newIndex);
         var animateLeft, slideLeft;
 
         advance();
@@ -37,7 +36,6 @@ $('.slider').each(function() {
     } 
 
     function advance() {
-        console.log($slides.length);
         clearTimeout(timeout);
         timeout = setTimeout(function() {
             if(currentIndex < ($slides.length - 1)) {

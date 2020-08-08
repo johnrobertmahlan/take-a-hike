@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Comments from '../Comments/Comments';
 import hikeService from '../../services/hikeService';
 import userService from  '../../services/userService';
-import Comments from '../Comments/Comments';
 import styles from './IndividualHike.module.css';
-import { Link } from 'react-router-dom';
 
 class IndividualHike extends Component {
 
@@ -16,14 +16,10 @@ class IndividualHike extends Component {
 
     async componentDidMount() {
         const id = this.props.trailId;
-        console.log(id);
         const hike = await hikeService.getHike(id);
-        console.log(hike);
         if(hike) {
-            console.log('hike', hike);
             this.setState({ hike })
             const hikeComments = await hikeService.getComments(id);
-            console.log(hikeComments);
             this.setState({ hikeComments })
         }
     };
@@ -36,26 +32,16 @@ class IndividualHike extends Component {
     addComment = async e => {
         e.preventDefault();
         const comment = this.state.userComments;
-        console.log(comment);
         const id = this.props.trailId;
         const hike = await hikeService.getHike(id);
-        console.log(hike);
         if(hike) {
-            console.log('hike', hike);
             this.setState({ hike })
         } else {
             const newHike =  await hikeService.create({id});
-            console.log(newHike);
             this.setState({ hike: newHike })
         }
         const userComment = await hikeService.createComment({content: comment, createdBy: userService.getUser()}, this.state.hike._id);
-        console.log(userComment);
         this.setState({mostRecent: comment});
-        // const userComments = {...this.state.userComments};
-        // this.setState({userComments, hikeComments})
-        //DO I EVEN NEED THE ABOVE 4 LINES GIVEN THE STRUCTURE OF HIKE?
-        //this.setState({userComments: hikeComments}) //this really ought to be an array, but I'll worry about that later
-        // I will need to use existing state and then push comment to the appropriate array afterwards
     }
 
     render() {

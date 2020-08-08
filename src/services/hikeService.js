@@ -19,7 +19,6 @@ function create(hike) {
 };
 
 function createComment(comment, id) {
-    console.log(comment, id);
     const options = {
         method: 'POST',
         headers: {
@@ -31,11 +30,9 @@ function createComment(comment, id) {
 };
 
 function getHike(id)  {
-    console.log(id);
     return fetch(BASE_URL + id).then(res => res.json());
 };
 
 function getComments(id) {
-    console.log('new', id);
     return fetch(BASE_URL + id + '/comments').then(res => res.json());
 };

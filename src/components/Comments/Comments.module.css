@@ -22,6 +22,10 @@
     color: rgb(0,0,128);
 }
 
+.comment>h4 {
+    color: rgb(0,0,128);
+}
+
 .comment>h3 {
     color: rgb(0,0,128);
 }
@@ -41,8 +45,8 @@
     color: white;
     font-size: 20px;
     padding: 7px;
-    width: 90px;
-    height: 45px;
+    width: 120px;
+    height: 25px;
     text-align: center;
 }
 
