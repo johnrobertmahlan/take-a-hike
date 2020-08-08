@@ -24,13 +24,13 @@ Here is the homepage for the app:
 
 Here is the Trello board for my project:
 
-[Take A Hike] (https://trello.com/b/YNRvW87u/ga-project-3)
+[Take A Hike](https://trello.com/b/YNRvW87u/ga-project-3)
 
 There are still a few Icebox features that I have not yet implemented, but would like to implement as I continue to work on the project.
 
 ## Getting Started
 
-You can check out the deployed app by following this link: [Take A Hike] (https://infinite-fortress-44591.herokuapp.com/)
+You can check out the deployed app by following this link: [Take A Hike](https://infinite-fortress-44591.herokuapp.com/)
 
 ## Unsolved Problems
 
