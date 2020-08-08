@@ -22,15 +22,41 @@ Here is the homepage for the app:
 
 ## Project Planning
 
-Here is the Trello board for my project:
+Here is the Trello Board for my project:
 
-[Take A Hike](https://trello.com/b/YNRvW87u/ga-project-3)
+[Trello Board](https://trello.com/b/YNRvW87u/ga-project-3)
 
 There are still a few Icebox features that I have not yet implemented, but would like to implement as I continue to work on the project.
 
 ## Getting Started
 
-You can check out the deployed app by following this link: [Take A Hike](https://infinite-fortress-44591.herokuapp.com/)
+I have deployed this app on Heroku. You can check it out by following this link: [Take A Hike](https://infinite-fortress-44591.herokuapp.com/)
+
+## Screenshots of the App
+
+I have already shared a screenshot of the app's homepage, so here are a few of the other main pages on the app:
+
+* Signup Page:
+
+![Signup Page](https://i.imgur.com/ZfnRIel.jpg)
+
+* Login Page:
+
+![LoginPage](https://i.imgur.com/y6dFFOq.jpg)
+
+If a user is *not* logged in, and they select a particular hike to learn more about, they will see this:
+
+![Non-Logged-In](https://i.imgur.com/5klFjcL.jpg)
+
+If the user *is* logged in, but there are currently no comments on that hike, then they will see this:
+
+![Logged-InNoComments](https://i.imgur.com/OAmiDZ4.jpg)
+
+But if the user is logged in and there *are* comments on the hike, then they will see this:
+
+![Comments](https://i.imgur.com/QhVBciQ.jpg)
+
+Screenshots of the results of searching for hikes will be presented below, where I discuss some unsolved problems with the app.
 
 ## Unsolved Problems
 
@@ -54,7 +80,22 @@ This may not seem important, but it leads to two major issues with functionality
 
 ![Piled Up Slidier](https://i.imgur.com/1enL3Qh.jpg)
 
-If a user clicks on the 'Learn More' button, they will be taken to a blank page, since there is no single hike they've selected due to the "pile up".
+If a user then clicks on the 'Learn More' button, they will be taken to a blank page, since there is no single hike they've selected due to the "pile up".
 
 The obvious solution to this problem is to rebuild the slider purely out of React components instead of using a static JavaScript file to build and load the slider. This is something I look forward to doing as I continue to work on the app, but I believe building the slider this way was a valuable lesson not only in incorporating external libraries into a React app, but also into seeing how one can code oneself into a corner and learn how to take a different approach.
 
+Other unsolved problems are minor by comparison. For example, users who navigate to the login page from a particular hike are not returned to that hike; they are returned to the homepage. That is not an ideal user experience. Similarly, when a user writes a new comment, the input box where they wrote the comment does not clear automatically.
+
+## Future Enhancements
+
+There are a number of interesting features that could be added to this app to improve its functionality.
+
+1. A simple feature that could be added is allowing users to filter their search results, perhaps by the length of the hike. That way users who are looking for hikes of a certain length might at least have a better idea where to start.
+
+2. Existing users are currently able to *add* comments to a hike, but they can neither *update* nor *delete* their comments. Adding this functionality would greatly improvve the user experience.
+
+3. Right now the ability to read or write comments on hikes is limited to users who have signed up for an account and logged into their account. But the ability to *read* comments should probably be extended to users who do not have accounts, while users *with* accounts should be able to do more than simply write comments. For example, it would be nice if each user had an "Account Page" where they could see hikes that they have commented on all in one place. This would allow frequent users to keep track of the hikes that they've already done and see what they've thought about those hikes.
+
+4. Since the app already consumes the OpenWeather API, another nice feature might be to show an upcoming forecast for a given trail. For example, when a user navigates to a particular trail, there could be a button the user could press that would display a 5-day forecast. This would help users plan upcoming trips.
+
+5. 
